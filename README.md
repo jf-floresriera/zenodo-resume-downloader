@@ -1,218 +1,207 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Descarga reanudable para Zenodo" width="100%">
+<img src="assets/banner.en.svg" alt="Resumable download for Zenodo" width="100%">
 
-<br>
+<p>
+  <img src="https://img.shields.io/badge/python-3.8%2B-3B6EA5?style=for-the-badge&amp;labelColor=0A111C" alt="Python 3.8+">
+  <img src="https://img.shields.io/badge/dependencies-none-2A9D8F?style=for-the-badge&amp;labelColor=0A111C" alt="No dependencies">
+  <img src="https://img.shields.io/badge/license-MIT-8FA6BF?style=for-the-badge&amp;labelColor=0A111C" alt="MIT license">
+</p>
 
-!\[Python](https://img.shields.io/badge/python-3.8%2B-3B6EA5?style=for-the-badge\&labelColor=0A111C)
-!\[Dependencias](https://img.shields.io/badge/dependencias-ninguna-2A9D8F?style=for-the-badge\&labelColor=0A111C)
-!\[Licencia](https://img.shields.io/badge/licencia-MIT-8FA6BF?style=for-the-badge\&labelColor=0A111C)
+<p><b>English</b> &nbsp;|&nbsp; <a href="README.es.md">Español</a></p>
 
 </div>
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## El problema
+## The problem
 
-Descargar un archivo de 10 GB desde el navegador falla con frecuencia: el servidor limita la velocidad de cada conexion, la sesion se corta y, al reintentar, todo empieza desde cero.
+Downloading a 10 GB file from the browser often fails: the server limits the speed of each connection, the session drops, and when you retry everything starts from zero.
 
-Este repositorio contiene **un unico script de Python** (`descargar\_zenodo.py`) que resuelve esos tres puntos:
+This repository ships **a single Python script** (`descargar_zenodo.py`) that fixes those problems:
 
-|Problema|Solucion|
-|-|-|
-|Servidor lento por conexion|Varias conexiones simultaneas, cada una con un rango de bytes distinto|
-|Cortes de red|Reintentos automaticos con espera exponencial|
-|Empezar de cero tras un fallo|Estado guardado en disco; se reanuda desde el ultimo segmento completo|
-|Archivo corrupto sin saberlo|Verificacion MD5 contra la suma publicada por Zenodo|
+| Problem | Solution |
+|---|---|
+| Server is slow per connection | Several simultaneous connections, each requesting a different byte range |
+| Network drops | Automatic retries with exponential backoff |
+| Starting over after a failure | Progress saved on disk; resumes from the last complete segment |
+| Silent file corruption | MD5 verification against the checksum published by Zenodo |
 
-Viene configurado por defecto para el registro
+It is preconfigured for the record
 [zenodo.org/records/8280431](https://zenodo.org/records/8280431)
-(*A pulse crop dataset of agronomic traits and multispectral images from multiple environments*, archivo `Images.zip`, 10.8 GB), pero funciona con cualquier archivo de Zenodo o de cualquier servidor que acepte descargas por rangos.
+(*A pulse crop dataset of agronomic traits and multispectral images from multiple environments*, file `Images.zip`, about 10.8 GB), but it works with any Zenodo file, or any server that supports range requests.
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## Inicio rapido
+## Quick start
 
-Necesitas Python 3.8 o superior. No hay nada que instalar.
+You need Python 3.8 or newer. There is nothing to install.
 
 ```bash
-# 1. Obtener el script
-git clone https://github.com/<jf-floresriera>/zenodo-resume-downloader.git
+# 1. Get the script
+git clone https://github.com/jf-floresriera/zenodo-resume-downloader.git
 cd zenodo-resume-downloader
 
-# 2. Descargar Images.zip (registro 0000) en la carpeta actual
-python descargar\_zenodo.py
+# 2. Download Images.zip (record 8280431) into the current folder
+python descargar_zenodo.py
 ```
 
-En Windows puedes usar `py descargar\_zenodo.py` desde PowerShell o CMD.
+On Windows you can use `py descargar_zenodo.py` from PowerShell or CMD.
 
-Si la descarga se interrumpe por cualquier motivo (corte de internet, cierre de la terminal, `Ctrl+C`, apagado del equipo), **ejecuta exactamente el mismo comando** y continuara donde quedo.
+If the download stops for any reason (network loss, closed terminal, `Ctrl+C`, shutdown), **run exactly the same command again** and it continues where it stopped.
 
 <div align="center">
-<img src="assets/terminal.svg" alt="Ejemplo ilustrativo de la salida en terminal" width="100%">
+<img src="assets/terminal.en.svg" alt="Illustrative terminal output" width="100%">
 </div>
 
-<sub>La animacion es una ilustracion del formato de salida; las cifras no corresponden a una medicion real.</sub>
+<sub>The animation is an illustration of the output format; the progress figures are not a real measurement.</sub>
+
+The program messages follow your system language (Spanish or English). Force one with `--lang es` or `--lang en`.
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## Como funciona
+## How it works
 
-El archivo se divide en segmentos de tamano fijo (8 MiB por defecto). Un grupo de hilos toma segmentos pendientes y pide cada uno con la cabecera HTTP `Range: bytes=inicio-fin`. Cada segmento se escribe directamente en su posicion dentro de `Images.zip.part`, un archivo que se reserva desde el comienzo con su tamano final.
-
-<div align="center">
-<img src="assets/paralelo.svg" alt="Cuatro conexiones paralelas llenando los segmentos de un archivo" width="100%">
-</div>
-
-Cada vez que un segmento termina, se anota en `Images.zip.estado.json`. Ese archivo se escribe de forma atomica, por lo que un corte de luz no lo daña.
-
-### Reanudacion
-
-Al iniciar, el script compara el estado guardado con el archivo remoto (URL y tamano). Si coinciden, salta los segmentos ya completos. Un segmento interrumpido a la mitad se retoma desde el ultimo byte recibido mientras el programa siga vivo; si se cerro el programa, solo se repite ese segmento (unos pocos MB, no el archivo entero).
+The file is split into fixed-size segments (8 MiB by default). A pool of threads takes pending segments and requests each one with the HTTP header `Range: bytes=start-end`. Each segment is written directly at its position inside `Images.zip.part`, a file reserved at its final size from the start.
 
 <div align="center">
-<img src="assets/reanudar.svg" alt="Tras un corte de red solo se descargan los segmentos pendientes" width="100%">
+<img src="assets/paralelo.en.svg" alt="Four parallel connections filling the segments of a file" width="100%">
 </div>
 
-### Verificacion
+Whenever a segment finishes, it is recorded in `Images.zip.estado.json`. That file is written atomically, so a power cut cannot corrupt it.
 
-Al terminar se calcula el MD5 del archivo y se compara con el publicado por Zenodo. Solo si coincide, `Images.zip.part` se renombra a `Images.zip` y se elimina el archivo de estado.
+### Resuming
+
+On start, the script compares the saved state with the remote file (URL and size). If they match, it skips the completed segments. A segment interrupted halfway resumes from the last byte received while the program is alive; if the program was closed, only that segment is repeated (a few MB, not the whole file).
+
+<div align="center">
+<img src="assets/reanudar.en.svg" alt="After an outage only the pending segments are downloaded" width="100%">
+</div>
+
+### Verification
+
+When finished, the MD5 of the file is computed and compared with the one published by Zenodo. Only if they match is `Images.zip.part` renamed to `Images.zip` and the state file removed.
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## Opciones
+## Options
 
 ```text
-python descargar\_zenodo.py \[URL] \[opciones]
+python descargar_zenodo.py [URL] [options]
 ```
 
-|Opcion|Descripcion|Por defecto|
-|-|-|-|
-|`URL`|Enlace directo del archivo|`Images.zip` del registro 8280431|
-|`-o`, `--salida CARPETA`|Carpeta de destino|carpeta actual|
-|`-n`, `--conexiones N`|Conexiones simultaneas|`4`|
-|`--segmento-mb MB`|Tamano de cada segmento en MiB|`8`|
-|`--reintentos N`|Reintentos consecutivos por segmento|`8`|
-|`--timeout SEG`|Espera maxima de red en segundos|`30`|
-|`--nombre NOMBRE`|Nombre del archivo final|el de la URL|
-|`--md5 SUMA`|MD5 esperado (si no, se busca en Zenodo)|automatico|
-|`--sin-verificar`|Omitir la verificacion MD5|desactivado|
-|`--reiniciar`|Borrar el avance guardado y empezar de cero|desactivado|
+| Option | Description | Default |
+|---|---|---|
+| `URL` | Direct link to the file | `Images.zip` from record 8280431 |
+| `-o`, `--salida DIR` | Destination folder | current folder |
+| `-n`, `--conexiones N` | Simultaneous connections | `4` |
+| `--segmento-mb MB` | Size of each segment in MiB | `8` |
+| `--reintentos N` | Consecutive retries per segment | `8` |
+| `--timeout SEC` | Network timeout in seconds | `30` |
+| `--nombre NAME` | Final file name | taken from the URL |
+| `--md5 SUM` | Expected MD5 (otherwise looked up on Zenodo) | automatic |
+| `--sin-verificar` | Skip the MD5 verification | off |
+| `--reiniciar` | Delete saved progress and start over | off |
+| `--lang auto/es/en` | Message language | `auto` |
 
-Ejemplos:
+The option names are in Spanish for historical reasons; their meaning is listed above.
+
+Examples:
 
 ```bash
-# Guardar en otra carpeta con 6 conexiones
-python descargar\_zenodo.py -n 6 -o \~/datos/drones
+# Save elsewhere using 6 connections
+python descargar_zenodo.py -n 6 -o ~/data/drones
 
-# Descargar otro archivo de Zenodo
-python descargar\_zenodo.py "https://zenodo.org/records/<id>/files/<archivo>?download=1"
+# Download another Zenodo file
+python descargar_zenodo.py "https://zenodo.org/records/<id>/files/<file>?download=1"
 
-# Red muy inestable: segmentos mas pequenos y mas reintentos
-python descargar\_zenodo.py --segmento-mb 4 --reintentos 15
+# Very unstable network: smaller segments and more retries
+python descargar_zenodo.py --segmento-mb 4 --reintentos 15
 ```
 
-Codigos de salida: `0` correcto, `1` error, `2` el MD5 no coincide, `130` interrumpido por el usuario (el avance queda guardado).
+Exit codes: `0` success, `1` error, `2` MD5 mismatch, `130` interrupted by the user (progress is kept).
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## Cuantas conexiones usar
+## How many connections
 
-* Empieza con **4**. Es un buen equilibrio y suele bastar cuando el limite esta en la velocidad por conexion.
-* Sube a **6 u 8** solo si al pasar de 4 la velocidad total aumenta de forma clara.
-* Si el servidor responde con errores `429` o `503`, **baja** el numero de conexiones. El script ya espera y reintenta, pero no conviene forzarlo.
-* Si el limite esta en el ancho de banda total que ofrece el servidor, mas conexiones no aceleran nada. En ese caso la ventaja real del script es la reanudacion, no la velocidad.
+- Start with **4**. It is a good balance and usually enough when the limit is the speed per connection.
+- Go to **6 or 8** only if total speed clearly improves beyond 4.
+- If the server answers with `429` or `503` errors, **lower** the number. The script already waits and retries, but do not push it.
+- If the limit is the server's total bandwidth, more connections will not speed anything up. In that case the real benefit is resuming, not speed.
 
-Zenodo es un servicio publico y gratuito mantenido por CERN. Usa el minimo de conexiones que te funcione.
+Zenodo is a free public service run by CERN. Use the minimum number of connections that works for you.
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## Despues de descargar
+## After downloading
 
-Un `.zip` de mas de 4 GB normalmente usa el formato ZIP64, asi que conviene una herramienta reciente:
+A `.zip` over 4 GB normally uses the ZIP64 format, so use a recent tool:
 
 ```bash
 # Linux / macOS
 unzip Images.zip -d Images
 
-# Windows: 7-Zip o el explorador de archivos
+# Windows: 7-Zip or File Explorer
 ```
 
-Comprueba que tengas espacio libre para el zip **y** para su contenido descomprimido.
+Make sure you have free space for the zip **and** for its extracted contents.
 
-## Solucion de problemas
+## Troubleshooting
 
-|Sintoma|Causa probable y accion|
-|-|-|
-|`Espacio insuficiente`|El disco no tiene lugar para el archivo completo. Libera espacio o usa `-o` con otro disco.|
-|`HTTP 429` / `HTTP 503` repetidos|El servidor pide bajar el ritmo. Reduce `-n` y vuelve a ejecutar.|
-|`Se agotaron los reintentos`|Corte prolongado. El avance esta guardado; ejecuta el mismo comando.|
-|`MD5 distinto`|Archivo corrupto. Ejecuta con `--reiniciar`.|
-|`No se encontro un MD5 de referencia`|La API de Zenodo no respondio. La descarga sigue; puedes pasar la suma con `--md5`.|
-|`El avance guardado no coincide`|Cambio el archivo remoto o la URL. El script empieza de cero de forma segura.|
-|Quiero borrar todo lo parcial|Elimina `Images.zip.part` y `Images.zip.estado.json`.|
+| Symptom | Likely cause and action |
+|---|---|
+| `Not enough disk space` | The disk cannot hold the full file. Free space or use `-o` with another drive. |
+| Repeated `HTTP 429` / `HTTP 503` | The server asks you to slow down. Lower `-n` and run again. |
+| `Retries exhausted` | Long outage. Progress is saved; run the same command. |
+| `MD5 mismatch` | Corrupted file. Run with `--reiniciar`. |
+| `No reference MD5 found` | Zenodo's API did not answer. The download continues; pass the sum with `--md5`. |
+| `Saved progress does not match` | The remote file or URL changed. The script safely starts over. |
+| I want to wipe partial data | Delete `Images.zip.part` and `Images.zip.estado.json`. |
 
-## Alternativas
+## Alternatives
 
-Si prefieres herramientas ya existentes, estas tambien reanudan y paralelizan:
+If you prefer existing tools, these also resume and parallelize:
 
 ```bash
-# aria2: 4 conexiones, reanuda con -c
+# aria2: 4 connections, resume with -c
 aria2c -c -x 4 -s 4 -k 8M -o Images.zip "https://zenodo.org/records/8280431/files/Images.zip?download=1"
 
-# curl: una conexion, reanuda con -C -
+# curl: single connection, resume with -C -
 curl -L -C - -o Images.zip "https://zenodo.org/records/8280431/files/Images.zip?download=1"
 ```
 
-La ventaja de este script es que funciona sin instalar nada mas que Python, muestra progreso claro y verifica el MD5 automaticamente.
+This script's advantage is that it needs nothing besides Python, shows clear progress and verifies the MD5 automatically.
 
 <img src="assets/divisor.svg" alt="" width="100%">
 
-## Prueba local
+## Local test
 
-Hay una prueba de extremo a extremo que no necesita internet. Levanta un servidor con soporte de rangos y velocidad limitada, interrumpe la descarga a la mitad, la reanuda y comprueba que el archivo final es identico al original:
+There is an end-to-end test that needs no internet. It starts a server with range support and limited speed, interrupts the download halfway, resumes it, and checks that the final file is identical to the original:
 
 ```bash
-python tests/prueba\_local.py
+python tests/prueba_local.py
 ```
 
-## Estructura del repositorio
+## Repository layout
 
 ```text
 .
-|-- descargar\_zenodo.py      # el descargador (un solo archivo, sin dependencias)
+|-- descargar_zenodo.py      # the downloader (single file, no dependencies)
 |-- tests/
-|   `-- prueba\_local.py      # prueba de reanudacion e integridad
-|-- assets/                  # ilustraciones animadas del README (SVG)
+|   `-- prueba_local.py      # resume and integrity test
+|-- assets/                  # animated README illustrations (SVG, es/en)
 |-- LICENSE
-`-- README.md
+|-- README.md                # English
+`-- README.es.md             # Español
 ```
 
-## Datos y citacion
+## Data and citation
 
-Este repositorio **no contiene ni redistribuye** el conjunto de datos; solo ayuda a descargarlo desde su fuente oficial. Revisa la licencia y las condiciones de uso en la pagina del registro, y cita el trabajo original:
+This repository **does not contain or redistribute** the dataset; it only helps download it from its official source. Check the license and terms of use on the record page, and cite the original work:
 
-> \*A pulse crop dataset of agronomic traits and multispectral images from multiple environments.\* Zenodo. DOI: \[10.5281/zenodo.8280431](https://doi.org/10.5281/zenodo.8280431)
+> *A pulse crop dataset of agronomic traits and multispectral images from multiple environments.* Zenodo. DOI: [10.5281/zenodo.8280431](https://doi.org/10.5281/zenodo.8280431)
 
-## Licencia
+## License
 
-El codigo de este repositorio se distribuye bajo licencia MIT (ver `LICENSE`). La licencia de los datos descargados es la que indique su autor en Zenodo.
-
-<img src="assets/divisor.svg" alt="" width="100%">
-
-<details>
-<summary><b>English summary</b></summary>
-
-<br>
-
-`descargar\_zenodo.py` is a dependency-free Python 3.8+ script that downloads large files (such as the 10.8 GB `Images.zip` from Zenodo record 8280431) using parallel HTTP range requests, automatic retries with exponential backoff, on-disk progress tracking so an interrupted download resumes where it stopped, and MD5 verification at the end.
-
-```bash
-python descargar\_zenodo.py                 # default record, 4 connections
-python descargar\_zenodo.py -n 6 -o ./data  # 6 connections, custom folder
-```
-
-Rerun the exact same command after any interruption to resume. Please use a modest number of connections: Zenodo is a shared public service. Command-line messages are in Spanish.
-
-</details>
-
+The code in this repository is released under the MIT license (see `LICENSE`). The license of the downloaded data is the one its author states on Zenodo.

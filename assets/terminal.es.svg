@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" width="1000" height="330" role="img" aria-labelledby="t d">
-  <title id="t">Ejemplo ilustrativo de la terminal</title>
-  <desc id="d">Simulacion animada de la barra de progreso del descargador.</desc>
+  <title id="t">terminal  -  ejemplo ilustrativo</title>
+  <desc id="d">Simulación animada de la barra de progreso del descargador.</desc>
   <rect width="1000" height="330" rx="12" fill="#0C1626"/>
   <rect x="1" y="1" width="998" height="328" rx="11" fill="none" stroke="#243A5C"/>
   <rect x="1" y="1" width="998" height="34" rx="11" fill="#13223A"/>
@@ -8,74 +8,74 @@
   <text x="500.0" y="23" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12" fill="#5B7189" text-anchor="middle">terminal  -  ejemplo ilustrativo</text>
 
   <text x="28" y="72" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#E6EDF5" opacity="0">$ python descargar_zenodo.py -n 4<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0187;0.97;1" values="0;1;1;0"/></text>
-  <text x="28" y="100" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#4F8FCB" opacity="0">Descargador reanudable para Zenodo  v1.0.0<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0500;0.97;1" values="0;1;1;0"/></text>
+  <text x="28" y="100" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#4F8FCB" opacity="0">Descargador reanudable para Zenodo  v1.1.0<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0500;0.97;1" values="0;1;1;0"/></text>
   <text x="28" y="128" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#8FA6BF" opacity="0">[info]  Archivo : Images.zip<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.0813;0.97;1" values="0;1;1;0"/></text>
-  <text x="28" y="156" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#8FA6BF" opacity="0">[info]  Tamano  : 10.80 GB  |  Rangos: si<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1125;0.97;1" values="0;1;1;0"/></text>
-  <text x="28" y="184" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#8FA6BF" opacity="0">[info]  Segmentos: 1288 de 8 MiB  |  Conexiones: 4<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1437;0.97;1" values="0;1;1;0"/></text>
+  <text x="28" y="156" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#8FA6BF" opacity="0">[info]  Tamaño  : 10.76 GB  |  Rangos: sí<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1125;0.97;1" values="0;1;1;0"/></text>
+  <text x="28" y="184" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="16" fill="#8FA6BF" opacity="0">[info]  Segmentos: 1283 de 8 MiB  |  Conexiones: 4<animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.1437;0.97;1" values="0;1;1;0"/></text>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2000;0.2656;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5">  0.0%   0.00 GB / 10.80 GB    0.0 MB/s  ETA --:--</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5">  0.0%   0.00 GB / 10.76 GB    0.0 MB/s  ETA --:--</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2656;0.3312;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="44" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 10.0%   1.08 GB / 10.80 GB   38.2 MB/s  ETA 04:14</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 10.0%   1.08 GB / 10.76 GB   38.2 MB/s  ETA 04:13</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.3313;0.3969;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="89" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 20.0%   2.16 GB / 10.80 GB   38.2 MB/s  ETA 03:46</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 20.0%   2.15 GB / 10.76 GB   38.2 MB/s  ETA 03:45</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.3969;0.4625;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="134" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 30.0%   3.24 GB / 10.80 GB   38.2 MB/s  ETA 03:17</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 30.0%   3.23 GB / 10.76 GB   38.2 MB/s  ETA 03:17</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.4625;0.5281;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="179" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 40.0%   4.32 GB / 10.80 GB   38.2 MB/s  ETA 02:49</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 40.0%   4.30 GB / 10.76 GB   38.2 MB/s  ETA 02:49</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.5281;0.5938;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="224" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 50.0%   5.40 GB / 10.80 GB   38.2 MB/s  ETA 02:21</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 50.0%   5.38 GB / 10.76 GB   38.2 MB/s  ETA 02:20</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.5938;0.6594;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="268" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 60.0%   6.48 GB / 10.80 GB   38.2 MB/s  ETA 01:53</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 60.0%   6.46 GB / 10.76 GB   38.2 MB/s  ETA 01:52</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.6594;0.7250;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="313" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 70.0%   7.56 GB / 10.80 GB   38.2 MB/s  ETA 01:24</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 70.0%   7.53 GB / 10.76 GB   38.2 MB/s  ETA 01:24</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.7250;0.7906;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="358" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 80.0%   8.64 GB / 10.80 GB   38.2 MB/s  ETA 00:56</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 80.0%   8.61 GB / 10.76 GB   38.2 MB/s  ETA 00:56</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.7906;0.8563;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="403" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 90.0%   9.72 GB / 10.80 GB   38.2 MB/s  ETA 00:28</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5"> 90.0%   9.68 GB / 10.76 GB   38.2 MB/s  ETA 00:28</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.8562;0.9125;1" values="0;1;0;0"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#1C2C45"/>
     <rect x="28" y="226" width="448" height="16" rx="3" fill="#4F8FCB"/>
-    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5">100.0%  10.80 GB / 10.80 GB    0.0 MB/s  ETA 00:00</text>
+    <text x="494" y="240" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#E6EDF5">100.0%  10.76 GB / 10.76 GB    0.0 MB/s  ETA 00:00</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.9125;0.97;1" values="0;1;1;0"/>

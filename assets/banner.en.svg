@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="t d">
-  <title id="t">Descarga reanudable para Zenodo</title>
-  <desc id="d">Banner animado con una barra de progreso que avanza por segmentos.</desc>
+  <title id="t">Resumable download</title>
+  <desc id="d">Files of tens of GB, parallel connections and integrity checks.</desc>
   <defs>
     <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0A111C"/><stop offset="1" stop-color="#13223A"/>
@@ -19,15 +19,12 @@
     </pattern>
     <clipPath id="pista"><rect x="60" y="238" width="1080" height="16" rx="8"/></clipPath>
   </defs>
-
   <rect width="1200" height="320" fill="url(#fondo)"/>
   <rect width="1200" height="320" fill="url(#malla)"/>
   <rect x="0" y="0" width="8" height="320" fill="url(#acento)"/>
-
-  <text x="60" y="96" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#2A9D8F" letter-spacing="4">ZENODO  /  DESCARGA POR SEGMENTOS</text>
-  <text x="60" y="152" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#E6EDF5">Descarga reanudable</text>
-  <text x="60" y="196" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" fill="#8FA6BF">Archivos de decenas de GB, conexiones en paralelo y verificacion de integridad.</text>
-
+  <text x="60" y="96" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="15" fill="#2A9D8F" letter-spacing="4">ZENODO  /  SEGMENTED DOWNLOAD</text>
+  <text x="60" y="152" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#E6EDF5">Resumable download</text>
+  <text x="60" y="196" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" fill="#8FA6BF">Files of tens of GB, parallel connections and integrity checks.</text>
   <rect x="60" y="238" width="1080" height="16" rx="8" fill="#1C2C45"/>
   <g clip-path="url(#pista)">
     <rect x="60" y="238" width="0" height="16" fill="url(#acento)">
@@ -41,9 +38,7 @@
   <g stroke="#0A111C" stroke-width="2">
     <line x1="330" y1="238" x2="330" y2="254"/><line x1="600" y1="238" x2="600" y2="254"/><line x1="870" y1="238" x2="870" y2="254"/>
   </g>
-  <text x="60" y="286" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#5B7189">reanuda donde quedo  /  sin dependencias  /  Python 3.8+</text>
-  <circle cx="1128" cy="112" r="6" fill="#D4A24C">
-    <animate attributeName="opacity" values="1;0.25;1" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <text x="1108" y="117" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#8FA6BF" text-anchor="end">activo</text>
+  <text x="60" y="286" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#5B7189">resumes where it stopped  /  no dependencies  /  Python 3.8+</text>
+  <circle cx="1128" cy="112" r="6" fill="#D4A24C"><animate attributeName="opacity" values="1;0.25;1" dur="2s" repeatCount="indefinite"/></circle>
+  <text x="1108" y="117" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#8FA6BF" text-anchor="end">active</text>
 </svg>

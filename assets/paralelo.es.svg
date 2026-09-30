@@ -1,31 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" width="1000" height="380" role="img" aria-labelledby="t d">
-  <title id="t">Descarga en paralelo por segmentos</title>
-  <desc id="d">Cuatro conexiones simultaneas llevan segmentos del servidor al archivo local.</desc>
+  <title id="t">Cuatro conexiones, un solo archivo</title>
+  <desc id="d">Cada conexión pide un rango de bytes distinto; los segmentos se escriben en su posición exacta.</desc>
   <rect width="1000" height="380" rx="14" fill="#0A111C"/>
   <rect x="1" y="1" width="998" height="378" rx="13" fill="none" stroke="#1C2C45"/>
   <text x="32" y="44" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#E6EDF5">Cuatro conexiones, un solo archivo</text>
-  <text x="32" y="68" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#8FA6BF">Cada conexion pide un rango de bytes distinto; los segmentos se escriben en su posicion exacta.</text>
+  <text x="32" y="68" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" fill="#8FA6BF">Cada conexión pide un rango de bytes distinto; los segmentos se escriben en su posición exacta.</text>
   <rect x="32" y="92" width="120" height="212" rx="10" fill="#13223A" stroke="#243A5C"/>
   <text x="92" y="190" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="14" fill="#E6EDF5" text-anchor="middle">servidor</text>
   <text x="92" y="212" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12" fill="#5B7189" text-anchor="middle">zenodo.org</text>
 
   <line x1="160" y1="125" x2="610" y2="125" stroke="#243A5C" stroke-width="2" stroke-dasharray="4 6"/>
-  <text x="190" y="112" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexion 1</text>
+  <text x="190" y="112" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexión 1</text>
   <rect x="160" y="118" width="22" height="14" rx="3" fill="#4F8FCB" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="0.00s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="0.00s" repeatCount="indefinite"/></rect>
   <rect x="160" y="118" width="22" height="14" rx="3" fill="#4F8FCB" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="1.20s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="1.20s" repeatCount="indefinite"/></rect>
   <rect x="160" y="118" width="22" height="14" rx="3" fill="#4F8FCB" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="2.40s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="2.40s" repeatCount="indefinite"/></rect>
   <line x1="160" y1="180" x2="610" y2="180" stroke="#243A5C" stroke-width="2" stroke-dasharray="4 6"/>
-  <text x="190" y="167" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexion 2</text>
+  <text x="190" y="167" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexión 2</text>
   <rect x="160" y="173" width="22" height="14" rx="3" fill="#2A9D8F" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="0.35s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="0.35s" repeatCount="indefinite"/></rect>
   <rect x="160" y="173" width="22" height="14" rx="3" fill="#2A9D8F" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="1.55s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="1.55s" repeatCount="indefinite"/></rect>
   <rect x="160" y="173" width="22" height="14" rx="3" fill="#2A9D8F" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="2.75s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="2.75s" repeatCount="indefinite"/></rect>
   <line x1="160" y1="235" x2="610" y2="235" stroke="#243A5C" stroke-width="2" stroke-dasharray="4 6"/>
-  <text x="190" y="222" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexion 3</text>
+  <text x="190" y="222" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexión 3</text>
   <rect x="160" y="228" width="22" height="14" rx="3" fill="#4F8FCB" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="0.70s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="0.70s" repeatCount="indefinite"/></rect>
   <rect x="160" y="228" width="22" height="14" rx="3" fill="#4F8FCB" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="1.90s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="1.90s" repeatCount="indefinite"/></rect>
   <rect x="160" y="228" width="22" height="14" rx="3" fill="#4F8FCB" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="3.10s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="3.10s" repeatCount="indefinite"/></rect>
   <line x1="160" y1="290" x2="610" y2="290" stroke="#243A5C" stroke-width="2" stroke-dasharray="4 6"/>
-  <text x="190" y="277" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexion 4</text>
+  <text x="190" y="277" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">conexión 4</text>
   <rect x="160" y="283" width="22" height="14" rx="3" fill="#2A9D8F" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="1.05s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="1.05s" repeatCount="indefinite"/></rect>
   <rect x="160" y="283" width="22" height="14" rx="3" fill="#2A9D8F" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="2.25s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="2.25s" repeatCount="indefinite"/></rect>
   <rect x="160" y="283" width="22" height="14" rx="3" fill="#2A9D8F" opacity="0"><animate attributeName="x" values="160;586" dur="3.6s" begin="3.45s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3.6s" begin="3.45s" repeatCount="indefinite"/></rect>
@@ -62,12 +62,10 @@
   <rect x="820" y="200" width="30" height="30" rx="4" fill="#1C2C45"><animate attributeName="fill" dur="14.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.6507;0.6757;0.94;1" values="#1C2C45;#D4A24C;#4F8FCB;#4F8FCB;#1C2C45"/></rect>
   <rect x="856" y="200" width="30" height="30" rx="4" fill="#1C2C45"><animate attributeName="fill" dur="14.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.6719;0.6969;0.94;1" values="#1C2C45;#D4A24C;#4F8FCB;#4F8FCB;#1C2C45"/></rect>
   <rect x="892" y="200" width="30" height="30" rx="4" fill="#1C2C45"><animate attributeName="fill" dur="14.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.6931;0.7181;0.94;1" values="#1C2C45;#D4A24C;#4F8FCB;#4F8FCB;#1C2C45"/></rect>
-  <g>
-    <rect x="640" y="270" width="266" height="52" rx="8" fill="#13223A" stroke="#243A5C"/>
-    <text x="654" y="292" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12" fill="#E6EDF5">Images.zip.estado.json</text>
-    <text x="654" y="311" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">segmentos completos guardados</text>
-    <circle cx="886" cy="296" r="5" fill="#2A9D8F"><animate attributeName="opacity" values="1;0.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
-  </g>
+  <rect x="640" y="270" width="266" height="52" rx="8" fill="#13223A" stroke="#243A5C"/>
+  <text x="654" y="292" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12" fill="#E6EDF5">Images.zip.estado.json</text>
+  <text x="654" y="311" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" fill="#5B7189">segmentos completos guardados</text>
+  <circle cx="886" cy="296" r="5" fill="#2A9D8F"><animate attributeName="opacity" values="1;0.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
   <rect x="32" y="330" width="12" height="12" rx="3" fill="#D4A24C"/>
   <text x="52" y="341" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" fill="#8FA6BF">en transferencia</text>
   <rect x="172" y="330" width="12" height="12" rx="3" fill="#4F8FCB"/>

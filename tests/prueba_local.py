@@ -95,7 +95,7 @@ def main():
         salida = os.path.join(tmp, "descargas")
 
         base = [sys.executable, SCRIPT, url, "-o", salida, "-n", "4",
-                "--segmento-mb", "2", "--md5", esperado]
+                "--segmento-mb", "2", "--lang", "es", "--md5", esperado]
 
         # 1) Primera ejecucion: se interrumpe con Ctrl+C a mitad de camino.
         p = subprocess.Popen(base, stderr=subprocess.PIPE, text=True)

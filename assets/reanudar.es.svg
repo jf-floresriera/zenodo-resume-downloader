@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" role="img" aria-labelledby="t d">
-  <title id="t">Reanudacion tras un corte de red</title>
-  <desc id="d">Los segmentos completos se conservan; tras el corte solo se descargan los que faltan.</desc>
+  <title id="t">Un corte no reinicia la descarga</title>
+  <desc id="d">El avance queda registrado; al volver a ejecutar solo se piden los segmentos pendientes.</desc>
   <rect width="1000" height="300" rx="14" fill="#0A111C"/>
   <rect x="1" y="1" width="998" height="298" rx="13" fill="none" stroke="#1C2C45"/>
   <text x="32" y="44" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#E6EDF5">Un corte no reinicia la descarga</text>
@@ -34,7 +34,7 @@
   <g opacity="0">
     <animate attributeName="opacity" dur="16.0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.5312;0.9375;1" values="0;1;0;0"/>
     <line x1="542.0" y1="98" x2="542.0" y2="178" stroke="#2A9D8F" stroke-width="3"/>
-    <text x="542.0" y="92" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#2A9D8F" text-anchor="middle">se retoma aqui</text>
+    <text x="542.0" y="92" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#2A9D8F" text-anchor="middle">se retoma aquí</text>
   </g>
   <text x="40" y="215" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#5B7189">segmentos conservados</text>
   <line x1="40" y1="224" x2="532.0" y2="224" stroke="#4F8FCB" stroke-width="2"/>
