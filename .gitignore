@@ -1,0 +1,18 @@
+# Descargas parciales y estado del descargador
+*.part
+*.estado.json
+*.estado.json.tmp
+
+# Datos descargados (no se suben al repositorio)
+*.zip
+Images/
+
+# Python
+__pycache__/
+*.pyc
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
